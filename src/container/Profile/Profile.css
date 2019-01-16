@@ -1,0 +1,14 @@
+Profile {
+    grid-area: cont;   
+}
+
+.profile {
+    background: #10addc;
+}
+.content {
+    padding-left: 10px;
+}
+
+.profile img {
+    max-width: 1000px;
+}

@@ -1,0 +1,11 @@
+Header {
+    grid-area: header;    
+}
+
+.header {
+    background: #34e014;
+}
+
+.header img {
+    max-width: 50px;
+}
