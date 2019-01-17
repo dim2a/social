@@ -1,11 +1,11 @@
 import React from 'react'
 import classes from './Post.css'
 
-const Post = () => {
+const Post = props => {
     return (
         <div className={classes.Post}>
             <img src='http://www.luljettas.com/images/avatar/img-6.jpg' alt='avatar' />
-            Post
+            {props.message}
             <div>
                 <span>like</span>
             </div>

@@ -4,5 +4,22 @@ Nav {
 
 .nav {
     padding: 10px;
-    background: #21e493;
+    background: #21e493;    
+}
+
+.link {
+    margin-top: 5px;
+}
+
+.link:last-child {
+    margin-top: 50px;
+}
+
+.link a {
+    color: #fff;
+    text-decoration: none;    
+}
+
+.link a.active {
+    color: gold;
 }

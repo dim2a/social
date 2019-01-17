@@ -3,7 +3,7 @@
     grid-template-rows: 80px 1fr;
     grid-template-columns: 2fr 10fr;
     grid-gap: 10px;
-    grid-template-areas: "header header""nav cont";
+    grid-template-areas: "header header""nav content";
     height: 100vh; 
     max-width: 1200px;
     margin: 0 auto;
