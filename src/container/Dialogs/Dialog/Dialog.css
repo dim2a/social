@@ -1,0 +1,12 @@
+.Dialog {
+
+}
+
+.Dialog a {
+    text-decoration: none;
+    color: white;
+}
+
+.Dialog .active {
+    color: gold;
+}

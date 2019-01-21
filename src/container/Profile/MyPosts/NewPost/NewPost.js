@@ -4,7 +4,9 @@ import classes from './NewPost.css'
 const NewPost = () => {
     return (
         <div className={classes.NewPost}>
-            <textarea></textarea>
+            <div>
+                <textarea></textarea>
+            </div>
             <button>AddPost</button>
         </div>
     )
