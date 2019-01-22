@@ -10,7 +10,9 @@ import Settings from './container/Settings/Settings';
 import Layout from './hoc/Layout/Layout';
 import {Route, Redirect, Switch} from 'react-router-dom'
 
-class App extends Component {
+class App extends Component {  
+   profile = () => <Profile postData={this.props.posts}/>
+   dialogs = () => <Dialogs dialogsData={this.props.dialogs} messagesData={this.props.messages} />
   render() {
     return (
       <div className={classes.Wrapper}>
@@ -18,11 +20,11 @@ class App extends Component {
         <Nav />
         <Layout>
           <Switch>
-            <Route path='/dialogs' component={Dialogs} />
-            <Route path='/profile' component={Profile} />
+            <Route path='/dialogs' component={this.dialogs} />
+            <Route path='/profile' component={this.profile} />
             <Route path='/news' component={News} />
             <Route path='/music' component={Music} />      
-            <Route path='/settings' component={Settings} />      
+            <Route path='/settings' component={Settings} />
             <Redirect to="/" />
           </Switch>
         </Layout>
