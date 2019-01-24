@@ -11,8 +11,8 @@ import Layout from './hoc/Layout/Layout';
 import {Route, Redirect, Switch} from 'react-router-dom'
 
 class App extends Component {  
-   profile = () => <Profile postData={this.props.posts}/>
-   dialogs = () => <Dialogs dialogsData={this.props.dialogs} messagesData={this.props.messages} />
+   profile = () => <Profile postData={this.props.state.profilePage.postData}/>
+   dialogs = () => <Dialogs data={this.props.state.messagePage} />
   render() {
     return (
       <div className={classes.Wrapper}>
