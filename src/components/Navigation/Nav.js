@@ -1,8 +1,10 @@
 import React from 'react'
 import classes from './Nav.css'
 import {NavLink} from 'react-router-dom'
+import Sidebar from '../../hoc/Sidebar/Sidebar'
+import FrendsSmList from '../FrendsSmList/FrendsSmList'
 
-const Nav = () => {
+const Nav = props => {
   return (
     <nav className={classes.nav}>
       <div className={classes.link}>
@@ -18,8 +20,15 @@ const Nav = () => {
         <NavLink to='/music' activeClassName={classes.active}>Music</NavLink>
       </div>
       <div className={classes.link}>
+        <NavLink to='/frends' activeClassName={classes.active}>Frends</NavLink>
+      </div>
+      <div className={`${classes.link} ${classes.settings}`}>
         <NavLink to='/settings' activeClassName={classes.active}>Settings</NavLink>
       </div>
+
+      <Sidebar>
+        <FrendsSmList frends={props.frends}/>
+      </Sidebar>
     </nav>
   )
 }

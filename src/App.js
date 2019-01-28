@@ -9,15 +9,18 @@ import Music from './container/Music/Music';
 import Settings from './container/Settings/Settings';
 import Layout from './hoc/Layout/Layout';
 import {Route, Redirect, Switch} from 'react-router-dom'
+import Frends from './container/Frends/Frends';
 
-class App extends Component {  
+class App extends Component { 
+
    profile = () => <Profile postData={this.props.state.profilePage.postData}/>
-   dialogs = () => <Dialogs data={this.props.state.messagePage} />
+   dialogs = () => <Dialogs data={this.props.state.messagesPage} />
+   frends = () => <Frends frends={this.props.state.sidebar} />
   render() {
     return (
       <div className={classes.Wrapper}>
         <Header />
-        <Nav />
+        <Nav frends={this.props.state.sidebar}/>
         <Layout>
           <Switch>
             <Route path='/dialogs' component={this.dialogs} />
@@ -25,6 +28,7 @@ class App extends Component {
             <Route path='/news' component={News} />
             <Route path='/music' component={Music} />      
             <Route path='/settings' component={Settings} />
+            <Route path='/frends' component={this.frends} />
             <Redirect to="/" />
           </Switch>
         </Layout>

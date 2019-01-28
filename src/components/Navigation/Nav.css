@@ -1,18 +1,20 @@
 Nav {   
-    grid-area: nav;    
+    grid-area: nav;        
+    background: #09774a;
+    padding: 10px;
 }
 
 .nav {
-    padding: 10px;
-    background: #09774a 
+    
 }
 
 .link {
     margin-top: 5px;
 }
 
-.link:last-child {
+.settings {
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .link a {

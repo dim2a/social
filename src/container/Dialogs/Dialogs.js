@@ -7,7 +7,7 @@ const Dialogs = props => {
 
     return (
         <div className={classes.Dialogs}>
-            <div className={classes.dialogs}>
+            <div className={classes.dialogsItems}>
                 {
                     props.data.dialogsData.map(d => <Dialog name = {d.name} id = {d.id} />) 
                 }

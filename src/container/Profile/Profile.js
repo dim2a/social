@@ -4,6 +4,7 @@ import MyPosts from './MyPosts/MyPosts';
 import AboutMe from './AboutMe/AboutMe'
 
 const Profile = props => {
+  
   return (
     <div className={classes.profile}>
       <AboutMe />

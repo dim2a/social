@@ -19,7 +19,14 @@ let state = {
             { id: 3, message: 'All gut!' },
             { id: 4, message: 'Ok.' }
         ]
-    }     
+    },
+    sidebar: {
+        frendsData : [
+            {id:1, name: 'Fedor', photo:'http://www.luljettas.com/images/avatar/img-6.jpg'},
+            {id:2, name: 'Petya', photo:'http://www.luljettas.com/images/avatar/img-6.jpg'},
+            {id:3, name: 'Viktor', photo:'http://www.luljettas.com/images/avatar/img-6.jpg'}
+        ]
+    }
 }
 
 export default state

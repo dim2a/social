@@ -1,0 +1,17 @@
+.Frends {
+   display: flex; 
+   padding: 50px;
+}
+
+.ico {
+}
+
+.ico img {
+    width: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.ico p {
+    margin-left: 20px;
+}
