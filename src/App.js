@@ -13,7 +13,9 @@ import Frends from './container/Frends/Frends';
 
 class App extends Component { 
 
-   profile = () => <Profile postData={this.props.state.profilePage.postData}/>
+   profile = () => <Profile profilePage={this.props.state.profilePage} 
+   addPost={this.props.addPost}
+   updateNewPostText={this.props.updateNewPostText}/>
    dialogs = () => <Dialogs data={this.props.state.messagesPage} />
    frends = () => <Frends frends={this.props.state.sidebar} />
   render() {

@@ -1,9 +1,12 @@
+import {rerenderEntireTree} from '../render';
+
 let state = {
     profilePage : {
         postData : [
             {id: 1, message: 'Hi, how are you?', likesCount: 15},
             {id: 2, message: "It's my first post", likesCount: 7}
-        ]
+        ],
+        newPostText: 'Hello, React Lesson!'
     },
     messagesPage : {
         dialogsData : [
@@ -27,6 +30,24 @@ let state = {
             {id:3, name: 'Viktor', photo:'http://www.luljettas.com/images/avatar/img-6.jpg'}
         ]
     }
+}
+
+window.state = state
+
+export let addPost = () => {
+    let newPost = {
+        id : 3,
+        message : state.profilePage.newPostText,
+        likesCount : 0
+    }
+    state.profilePage.postData.push(newPost)
+    state.profilePage.newPostText = ''
+    rerenderEntireTree(state)
+}
+
+export let updateNewPostText= newText => {
+    state.profilePage.newPostText =  newText
+    rerenderEntireTree(state)
 }
 
 export default state

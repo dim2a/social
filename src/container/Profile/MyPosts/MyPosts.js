@@ -9,8 +9,10 @@ const MyPosts = props => {
             <h3>
                 My posts
             </h3>
-            <NewPost />
-            {props.postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)}
+            <NewPost addPost={props.addPost} 
+            newPostText={props.profilePage.newPostText}
+            updateNewPostText={props.updateNewPostText}/>            
+            {props.profilePage.postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)}
         </div>
     )    
 }
