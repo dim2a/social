@@ -7,7 +7,7 @@ import FrendsSmList from '../FrendsSmList/FrendsSmList'
 const Nav = props => {
   return (
     <nav className={classes.nav}>
-      <div className={classes.link}>
+     <div className={classes.link}>
         <NavLink to='/profile' activeClassName={classes.active}>Profile</NavLink>
       </div>
       <div className={classes.link}>
@@ -24,7 +24,7 @@ const Nav = props => {
       </div>
       <div className={`${classes.link} ${classes.settings}`}>
         <NavLink to='/settings' activeClassName={classes.active}>Settings</NavLink>
-      </div>
+      </div> 
 
       <Sidebar>
         <FrendsSmList frends={props.frends}/>

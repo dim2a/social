@@ -1,53 +1,80 @@
-import {rerenderEntireTree} from '../render';
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
-let state = {
-    profilePage : {
-        postData : [
-            {id: 1, message: 'Hi, how are you?', likesCount: 15},
-            {id: 2, message: "It's my first post", likesCount: 7}
-        ],
-        newPostText: 'Hello, React Lesson!'
+let store = {
+    _state: {
+        profilePage: {
+            postData: [
+                { id: 1, message: 'Hi, how are you?', likesCount: 15 },
+                { id: 2, message: "It's my first post", likesCount: 7 }
+            ],
+            newPostText: 'Hello, React Lesson!'
+        },
+        messagesPage: {
+            dialogsData: [
+                { id: 1, name: 'Fedor' },
+                { id: 2, name: 'Petya' },
+                { id: 3, name: 'Viktor' },
+                { id: 4, name: 'John' },
+                { id: 5, name: 'Dima' }
+            ],
+            messagesData: [
+                { id: 1, message: 'Hi' },
+                { id: 2, message: 'How are You?' },
+                { id: 3, message: 'All gut!' },
+                { id: 4, message: 'Ok.' }
+            ]
+        },
+        sidebar: {
+            frendsData: [
+                { id: 1, name: 'Fedor', photo: 'http://www.luljettas.com/images/avatar/img-6.jpg' },
+                { id: 2, name: 'Petya', photo: 'http://www.luljettas.com/images/avatar/img-6.jpg' },
+                { id: 3, name: 'Viktor', photo: 'http://www.luljettas.com/images/avatar/img-6.jpg' }
+            ]
+        }
     },
-    messagesPage : {
-        dialogsData : [
-            { id: 1, name: 'Fedor' },
-            { id: 2, name: 'Petya' },
-            { id: 3, name: 'Viktor' },
-            { id: 4, name: 'John' },
-            { id: 5, name: 'Dima' }
-        ],    
-        messagesData : [
-            { id: 1, message: 'Hi' },
-            { id: 2, message: 'How are You?' },
-            { id: 3, message: 'All gut!' },
-            { id: 4, message: 'Ok.' }
-        ]
+    _callSubscriber() {
+        console.log('State changed')
     },
-    sidebar: {
-        frendsData : [
-            {id:1, name: 'Fedor', photo:'http://www.luljettas.com/images/avatar/img-6.jpg'},
-            {id:2, name: 'Petya', photo:'http://www.luljettas.com/images/avatar/img-6.jpg'},
-            {id:3, name: 'Viktor', photo:'http://www.luljettas.com/images/avatar/img-6.jpg'}
-        ]
+
+    getState() {
+        return this._state
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer
+    },
+  
+
+    dispatch(action) {
+        if (action.type === ADD_POST) {
+            let newPost = {
+                id: 3,
+                message: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+            this._state.profilePage.postData.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._callSubscriber(this._state)
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.newPostText = action.newText
+            this._callSubscriber(this._state)
+        }
+    }
+
+}
+
+export const addPostActionCreator = () => {   
+    return {
+        type: ADD_POST
     }
 }
 
-window.state = state
-
-export let addPost = () => {
-    let newPost = {
-        id : 3,
-        message : state.profilePage.newPostText,
-        likesCount : 0
+export const updateNewPostTextActionCreator = (text) => {    
+    return {
+        type: UPDATE_NEW_POST_TEXT, 
+        newText: text
     }
-    state.profilePage.postData.push(newPost)
-    state.profilePage.newPostText = ''
-    rerenderEntireTree(state)
 }
 
-export let updateNewPostText= newText => {
-    state.profilePage.newPostText =  newText
-    rerenderEntireTree(state)
-}
-
-export default state
+window.store = store
+export default store
