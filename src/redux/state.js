@@ -1,5 +1,8 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+const SEND_MESSAGE = 'SEND-MESSAGE'
+
 
 let store = {
     _state: {
@@ -23,7 +26,8 @@ let store = {
                 { id: 2, message: 'How are You?' },
                 { id: 3, message: 'All gut!' },
                 { id: 4, message: 'Ok.' }
-            ]
+            ],
+            newMessageText: ''
         },
         sidebar: {
             frendsData: [
@@ -58,6 +62,17 @@ let store = {
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber(this._state)
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.messagesPage.newMessageText = action.payload.newText
+            this._callSubscriber(this._state)
+        } else if (action.type === SEND_MESSAGE) {
+            let newMessage = {
+                id: this._state.messagesPage.messagesData.length+1,
+                message: this._state.messagesPage.newMessageText
+            }
+            this._state.messagesPage.messagesData.push(newMessage)
+            this._state.messagesPage.newMessageText = ''
+            this._callSubscriber(this._state)
         }
     }
 
@@ -68,11 +83,24 @@ export const addPostActionCreator = () => {
         type: ADD_POST
     }
 }
-
 export const updateNewPostTextActionCreator = (text) => {    
     return {
         type: UPDATE_NEW_POST_TEXT, 
         newText: text
+    }
+}
+
+export const updateNewMessageTextCreator = (text) => {
+    return {
+        type: UPDATE_NEW_MESSAGE_TEXT,
+        payload: {
+            newText: text
+        }
+    }
+}
+export const sendMessageCreator = () => {   
+    return {
+        type: SEND_MESSAGE
     }
 }
 

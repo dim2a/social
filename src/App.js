@@ -15,7 +15,8 @@ class App extends Component {
 
    profile = () => <Profile profilePage={this.props.state.profilePage} 
    dispatch={this.props.dispatch}/>
-   dialogs = () => <Dialogs data={this.props.state.messagesPage} />
+   dialogs = () => <Dialogs data={this.props.state.messagesPage}
+   dispatch={this.props.dispatch} />
    frends = () => <Frends frends={this.props.state.sidebar} />
   render() {
     return (
