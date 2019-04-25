@@ -3,7 +3,7 @@ import classes from './NewPost.css'
 import { 
     addPostActionCreator, 
     updateNewPostTextActionCreator } 
-    from '../../../../redux/state';
+    from '../../../../redux/profileReducer';
 
 
 const NewPost = props => {

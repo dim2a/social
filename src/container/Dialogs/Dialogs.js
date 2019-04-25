@@ -5,17 +5,13 @@ import Message from './Messages/Message/Message'
 import {
     sendMessageCreator,
     updateNewMessageTextCreator
-} from '../../redux/state'
+} from '../../redux/dialogsReducer'
 
 const Dialogs = props => {
 
     let dialogItems = props.data.dialogsData.map(d => <Dialog name = {d.name} id = {d.id} />) 
     let messageItems = props.data.messagesData.map(m => <Message message={m.message} />)
     let newMessageText = props.data.newMessageText
-
-    console.log(props)
-
-    //const newMessage = React.createRef()
     
     const onNewMessageChange = (e) => {
         let action = updateNewMessageTextCreator(e.target.value)
